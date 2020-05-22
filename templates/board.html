@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %} Boggle Board {% endblock %}
+
+{% block content %}
+
+    <section id="boggle">
+        <table class="board">
+            <tbody>
+                {% for row in board %}
+                <tr>
+                    {% for cell in row %}
+                    <td>{{cell}}</td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <p>High Score: 
+            <b>{{ highscore }}</b> 
+            in {{ nplays }} plays
+        </p>
+
+        <div class="game-details">
+            <p>
+                Score: <b class="score">0</b>
+            </p>
+            <p>
+                Time Left (secs.): <b class='timer'></b>
+            </p>
+        </div>
+
+        <form method="POST" class="word-form">
+            <input type="text" name="word" class="word" autofocus>
+            <button>Submit</button>
+        </form>
+
+        <p class="msg">
+
+        </p>
+
+        <ul class="words-used">
+
+        </ul>
+    </section>
+
+{% endblock %}
